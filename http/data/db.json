@@ -1,0 +1,65 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Gabinete Montech",
+      "price": 399.99
+    },
+    {
+      "id": "2",
+      "name": "Teclado Mecânico",
+      "price": 79.99
+    },
+    {
+      "id": "3",
+      "name": "Cadeira Ergonômica",
+      "price": 499.99
+    },
+    {
+      "id": "4",
+      "name": "Mouse Wireless",
+      "price": 19.99
+    },
+    {
+      "id": "5",
+      "name": "Monitor IPS Full HD",
+      "price": 799.99
+    },
+    {
+      "name": "Notebook Gamer",
+      "price": "3999.99",
+      "id": "YQCYVHYjDNQ"
+    },
+    {
+      "name": "Intel Core i5 12400F",
+      "price": "699.99",
+      "id": "8U5vPwPKFbY"
+    },
+    {
+      "name": "Memória RAM 8GB",
+      "price": "629.99",
+      "id": "tFQC2V_hP_A"
+    },
+    {
+      "name": "SSD NVMe 1TB",
+      "price": "499.99",
+      "id": "pDI0Fh1Bp0g"
+    },
+    {
+      "name": "ASRock RX 6600",
+      "price": "1499.99",
+      "id": "8K0DhrbFjRQ"
+    },
+    {
+      "name": "Mouse Pad Gamer",
+      "price": "99.99",
+      "id": "pHkCGyRHN6M"
+    },
+    {
+      "name": "Placa ASRock B660M",
+      "price": "1299.99",
+      "id": "e6gv6vQ-mLk"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
