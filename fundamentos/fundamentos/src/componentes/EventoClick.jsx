@@ -28,10 +28,10 @@ const EventoClick = () => {
         <button onClick={handleClick}>Botão com função</button>
     </div>
 
-    {/*Retornando a função com renderização */}
+    {/* Retornando a função com renderização */}
     {renderizacao(true)}
     {renderizacao(false)}
-
+    
 </div>
   )
 }

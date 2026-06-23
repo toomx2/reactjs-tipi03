@@ -15,21 +15,21 @@ const MeuFormulario = () => {
 
     console.log(name, email);
 
-    //Envio de form
+    // Envio do form
     const handleSubmit = (e) => {
         e.preventDefault();
-        
+
         console.log(name, email, biografia, role);
 
-        //Limpar formulário
+    // Limpar formulário
     setName("");
     setEmail("");
     setBiografia("");
     setRole("");
     }
 
+ 
 
-    
   return (
     <div>
         {/* Criação do form */}
@@ -73,4 +73,4 @@ const MeuFormulario = () => {
   )
 }
 
-export default MeuFormulario;
+export default MeuFormulario
