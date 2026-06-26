@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Cadastrados = () => {
-
   const [lista, setLista] = useState([]);
   const navegacao = useNavigate();
 
@@ -11,7 +10,7 @@ const Cadastrados = () => {
     carregarUsuarios();
   }, []);
 
-  // Carregar usuários
+  //Carregar usuários
   const carregarUsuarios = () => {
     axios.get('http://localhost:7006/cadastrados', { withCredentials: true })
       .then(res => {
@@ -20,7 +19,7 @@ const Cadastrados = () => {
       .catch(err => console.log(err));
   }
 
-  // Voltar para Home ✅
+  // Voltar para Home 
   const handleHome = () => {
     navegacao('/');
   }
@@ -32,27 +31,24 @@ const Cadastrados = () => {
 
   // Excluir usuário
   const handleExcluir = (id) => {
-    if (window.confirm("Deseja realmente excluir este usuário?")) {
-      axios.delete(`http://localhost:7006/cadastrados/${id}`)
+  if (window.confirm("Deseja realmente excluir este usuário?")) {
+    axios.delete(`http://localhost:7006/cadastrados/${id}`)
         .then(res => {
           alert(res.data.message);
           carregarUsuarios();
         })
         .catch(err => console.log(err));
-    }
+  }
   }
 
   return (
     <div>
-
-      {/* NOVO BOTÃO */}
       <button onClick={handleHome} style={{ marginBottom: '15px' }}>
         Voltar para Home
       </button>
 
-      <h2>Lista de Cadastrados</h2>
-
-      <table border="1" cellPadding="10">
+       <h2>Lista de Cadastrados</h2>
+       <table border="1" cellPadding="10">
         <thead>
           <tr>
             <th>ID</th>
@@ -69,27 +65,25 @@ const Cadastrados = () => {
                 <td>{usuario.id}</td>
                 <td>{usuario.name}</td>
                 <td>{usuario.email}</td>
-                <td>
-                  <button onClick={() => handleEditar(usuario.id)}>
+                 <button onClick={() => handleEditar(usuario.id)}>
                     Editar
-                  </button>
+                 </button>
 
-                  <button
+                 <button
                     onClick={() => handleExcluir(usuario.id)}
                     style={{ marginLeft: '10px', color: 'red' }}
                   >
                     Excluir
                   </button>
-                </td>
               </tr>
             ))
           ) : (
             <tr>
-              <td colSpan="4">Nenhum usuário encontrado</td>
+            <td colSpan="4">Nenhum usuário encontrado</td>
             </tr>
           )}
         </tbody>
-      </table>
+       </table>
     </div>
   )
 }

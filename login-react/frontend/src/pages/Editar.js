@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
-import axios from 'axios'
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useParams, useNavigate } from 'react-router-dom';
 
 const Editar = () => {
 
@@ -13,8 +13,9 @@ const Editar = () => {
   });
 
   useEffect(() => {
-    axios.get(`http://localhost:7006/cadastrados/${id}`)
-      .then(res => {
+    axios.get(`http://localhost:7006/cadastrados/${id}`,
+      {withCredentials: true})
+    .then(res => {
         setDados({
           name: res.data.name,
           email: res.data.email
@@ -25,7 +26,7 @@ const Editar = () => {
 
   const handleChange = (e) => {
     setDados({
-      ...dados,
+       ...dados,
       [e.target.name]: e.target.value
     });
   }
@@ -36,14 +37,14 @@ const Editar = () => {
     axios.put(`http://localhost:7006/cadastrados/${id}`, dados, {
       withCredentials: true
     })
-      .then(res => {
+    .then(res => {
         alert(res.data.message);
         navegacao("/cadastrados");
       })
       .catch(err => console.log(err));
   }
 
-  // NOVA FUNÇÃO
+  //Função cancelar
   const handleCancelar = () => {
     navegacao("/cadastrados");
   }
@@ -53,7 +54,6 @@ const Editar = () => {
       <h2>Editar Usuário</h2>
 
       <form onSubmit={handleSubmit}>
-
         <div>
           <label>Nome:</label>
           <input
@@ -66,7 +66,7 @@ const Editar = () => {
 
         <div>
           <label>Email:</label>
-          <input
+           <input
             type="email"
             name="email"
             value={dados.email}
@@ -76,6 +76,7 @@ const Editar = () => {
 
         <button type="submit">Atualizar</button>
 
+        
         {/* BOTÃO CANCELAR */}
         <button 
           type="button"
@@ -86,6 +87,7 @@ const Editar = () => {
         </button>
 
       </form>
+
     </div>
   )
 }
